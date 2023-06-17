@@ -1,7 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import BaseColaboradores from '../BaseColaboradores'
 
-
 const Listado = ({ listaColaboradores, borrarColaborador }) => {
   return (
     <Table responsive>
