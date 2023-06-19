@@ -5,14 +5,14 @@ const email_regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 const age_regex = /^[0-9-]+$/;
 const phone_regex = /^\+569\d{8}$/;
 
-const Formulario = ({sumaColaborador, setAlert}) => {
+const Formulario = ({ sumaColaborador, setAlert }) => {
 
     const [newColaborador, setNewColaborador] = useState({
-        name: '',
-        mail: '',
-        age: '',
-        position: '',
-        phone: ''
+        nombre: '',
+        correo: '',
+        edad: '',
+        cargo: '',
+        telefono: ''
     });
 
     const handleChange = (e) => {
@@ -33,7 +33,7 @@ const Formulario = ({sumaColaborador, setAlert}) => {
         ) {
             setAlert({
                 message: 'Ingrese todos los campos solicitados',
-                type: 'advertencia',
+                type: 'danger',
             });
             return;
         }
@@ -73,11 +73,11 @@ const Formulario = ({sumaColaborador, setAlert}) => {
     sumaColaborador(newColaborador);
 
         setNewColaborador({
-            name: '',
-            mail: '',
-            age: '',
-            position: '',
-            phone: ''
+            nombre: '',
+            correo: '',
+            edad: '',
+            cargo: '',
+            telefono: ''
         });
         setAlert({
             message: "Ingreso exitoso",
@@ -85,40 +85,45 @@ const Formulario = ({sumaColaborador, setAlert}) => {
         });
 
     return (
-    <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
         <input
+            className="form-control"
             type="text"
-            name="name"
+            name="nombre"
             placeholder="Ingresa un nombre"
             value={newColaborador.nombre}
             onChange={handleChange}
         />
         <input
+            className="form-control"
             type="text"
-            name="mail"
+            name="correo"
             placeholder="Ingresa un correo"
-            value={newColaborador.mail}
+            value={newColaborador.correo}
             onChange={handleChange}
         />
         <input
+            className="form-control"
             type="text"
-            name="age"
+            name="edad"
             placeholder="Ingresa edad"
-            value={newColaborador.age}
+            value={newColaborador.edad}
             onChange={handleChange}
         />
         <input
+            className="form-control"
             type="text"
-            name="position"
+            name="cargo"
             placeholder="Ingresa un cargo"
-            value={newColaborador.position}
+            value={newColaborador.cargo}
             onChange={handleChange}
         />
         <input
-            type="number"
-            name="phone"
+            className="form-control"
+            type="text"
+            name="telefono"
             placeholder="Ingresa un celular"
-            value={newColaborador.phone}
+            value={newColaborador.telefono}
             onChange={handleChange}
         />
         <button

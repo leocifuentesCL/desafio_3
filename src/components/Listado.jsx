@@ -1,7 +1,6 @@
 import Table from 'react-bootstrap/Table';
-import BaseColaboradores from '../BaseColaboradores'
 
-const Listado = ({ BaseColaboradores, borrarColaborador }) => {
+const Listado = ({ colaboradores, deleteColaborador }) => {
   return (
     <Table responsive>
       <thead>
@@ -16,7 +15,7 @@ const Listado = ({ BaseColaboradores, borrarColaborador }) => {
         </tr>
       </thead>
       <tbody>
-      {BaseColaboradores.map((colaborador) => (
+        {colaboradores.map((colaborador) => (
             <tr key={colaborador.id}>
             <td>{colaborador.id}</td>
             <td>{colaborador.nombre}</td>
@@ -24,7 +23,9 @@ const Listado = ({ BaseColaboradores, borrarColaborador }) => {
             <td>{colaborador.edad}</td>
             <td>{colaborador.cargo}</td>
             <td>{colaborador.telefono}</td>
-            <td><i className="fa-solid fa-trash"></i></td>
+            <td><i className="fa-solid fa-trash"
+            onClick={() => deleteColaborador(colaborador.id)}></i>
+            </td>
             </tr>
         ))}
       </tbody>
