@@ -6,6 +6,32 @@
   box-sizing: border-box;
 }
 
-Table {
+.titulo {
+  text-align: center;
   padding: 50px;
 }
+
+.buscador {
+  /*border: 5px solid black;*/
+  padding: 20px;
+}
+
+.listado {
+  /*border: 1px solid black;*/
+  padding: 20px;
+}
+
+.subtitulo {
+  text-align: center;
+  padding: 20px;
+}
+
+.formulario {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: center;
+
+}
+

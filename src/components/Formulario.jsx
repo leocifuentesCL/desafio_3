@@ -15,13 +15,11 @@ const Formulario = ({ sumaColaborador, setAlert }) => {
         telefono: ''
     });
 
-    const handleChange = (e) => {
-        setNewColaborador({
-            ...newColaborador, [e.target.name]: e.target.value,
-        });
+    const handlerChange = (e) => {
+        setNewColaborador({...newColaborador, [e.target.name]: e.target.value,});
     };
 
-    const handleSubmit = (e) => {
+    const handlerSend = (e) => {
         e.preventDefault();
 
         if (
@@ -29,7 +27,7 @@ const Formulario = ({ sumaColaborador, setAlert }) => {
             !newColaborador.correo.trim() ||
             !newColaborador.edad.trim() ||
             !newColaborador.cargo.trim() ||
-            !newColaborador.celular.trim()
+            !newColaborador.telefono.trim()
         ) {
             setAlert({
                 message: 'Ingrese todos los campos solicitados',
@@ -83,55 +81,45 @@ const Formulario = ({ sumaColaborador, setAlert }) => {
             message: "Ingreso exitoso",
             type: 'success'
         });
+    };
 
     return (
-        <form onSubmit={handleSubmit}>
+    <form className="d-flex flex-column gap-2" onSubmit={handlerSend}>
         <input
-            className="form-control"
             type="text"
             name="nombre"
-            placeholder="Ingresa un nombre"
+            placeholder="Ingrese un nombre"
             value={newColaborador.nombre}
-            onChange={handleChange}
-        />
+            onChange={handlerChange}/>
         <input
-            className="form-control"
             type="text"
             name="correo"
-            placeholder="Ingresa un correo"
+            placeholder="Ingrese un correo"
             value={newColaborador.correo}
-            onChange={handleChange}
-        />
+            onChange={handlerChange}/>
         <input
-            className="form-control"
             type="text"
             name="edad"
-            placeholder="Ingresa edad"
+            placeholder="Ingrese edad"
             value={newColaborador.edad}
-            onChange={handleChange}
-        />
+            onChange={handlerChange}/>
         <input
-            className="form-control"
             type="text"
             name="cargo"
-            placeholder="Ingresa un cargo"
+            placeholder="Ingrese un cargo"
             value={newColaborador.cargo}
-            onChange={handleChange}
-        />
+            onChange={handlerChange}/>
         <input
-            className="form-control"
             type="text"
             name="telefono"
-            placeholder="Ingresa un celular"
+            placeholder="Ingrese un celular"
             value={newColaborador.telefono}
-            onChange={handleChange}
-        />
-        <button
-            className="btn btn-info text-black" type="submit">
-            Agregar
+            onChange={handlerChange}/>
+        <button className="btn btn-success" type="submit">
+        Agregar
         </button>
     </form>
     );
-}};
+};
 
 export default Formulario;

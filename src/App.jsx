@@ -37,17 +37,26 @@ const App = () => {
     );
 
   return (
-    <>
-      <h1>Lista de colaboradores</h1>
-      <Buscador endSearch={endSearch} onChanges={handlerEndSearch}/>
-      <Listado colaboradores={filtroColaboradores} deleteColaborador={deleteColaborador}/>
-      <h2>Agregue una persona</h2>
-      <Formulario
-      sumaColaborador={sumaColaborador}
-      colaboradores={colaboradores}
-      setAlert={setAlert}
-      />
-    </>
+  <>
+    <div className='total'>
+      <div className='titulo'>
+        <h1>Lista de colaboradores</h1>
+      </div>
+      <div className='buscador'>
+        <Buscador endSearch={endSearch} onChanges={handlerEndSearch}/>
+      </div>
+      <div className='listado'>
+        <Listado colaboradores={filtroColaboradores} deleteColaborador={deleteColaborador}/>
+      </div>
+      <div className='subtitulo'>
+        <h2>Agregue una persona</h2>
+      </div>
+      <div className='formulario'>
+        <Formulario sumaColaborador={sumaColaborador} colaboradores={colaboradores} 
+        setAlert={setAlert} />
+      </div>
+    </div>
+  </>
   );
   }
 
